@@ -1,17 +1,17 @@
-<header>
-  <title>Welcome to Astro</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/global.css">
-  <link rel="icon" href="/public/favicon.svg">
-</header>
-<body class="background-color">
-<p id="greet" class="foreground-color">Hello!</p>
-</body>
-<style>
-  #greet {
-	font-family: 'Roboto-Flex', sans-serif;
-	font-size: 2em;
-	text-align: center;
-	margin-top: 20vh;
-  }
+---
+import BaseLayout from '../layouts/base.astro';
+---
+
+<BaseLayout title="Welcome!">
+  <p id="greet">Hello!</p>
+
+  <style>
+    #greet {
+      font-family: 'Roboto-Flex', sans-serif;
+      font-weight: 400;
+      font-size: 2em;
+      text-align: center;
+      margin-top: 20vh;
+    }
+  </style>
+</BaseLayout>

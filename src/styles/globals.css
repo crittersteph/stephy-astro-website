@@ -2,12 +2,6 @@
     font-family: 'Roboto-Flex';
     src: url('../assets/Roboto-Flex.ttf') format('truetype');
 }
-.background-color {
-    background-color: #393E41;
-}
-.foreground-color {
-    color: #F3F3F4 !important;
-}
 .indigo-color {
     color: #9593D9 !important;
 }
