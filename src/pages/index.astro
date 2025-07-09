@@ -1,11 +1,17 @@
----
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
----
-
-<Layout>
-	<Welcome />
-</Layout>
+<header>
+  <title>Welcome to Astro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="icon" href="/public/favicon.svg">
+</header>
+<body class="background-color">
+<p id="greet" class="foreground-color">Hello!</p>
+</body>
+<style>
+  #greet {
+	font-family: 'Roboto-Flex', sans-serif;
+	font-size: 2em;
+	text-align: center;
+	margin-top: 20vh;
+  }
