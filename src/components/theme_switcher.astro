@@ -1,59 +1,67 @@
 ---
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+const { size = "1.5em" } = Astro.props;
 ---
+
 <body>
-    <span id="theme-toggle-span">
-        <i id="theme-toggle" class="bi foreground-color i-button"></i>
-    </span>
+  <span id="theme-toggle-span">
+    <i id="theme-toggle" class="bi foreground-color i-button"></i>
+  </span>
 </body>
 <script>
-    const setTheme = (theme: string) => {
-        localStorage.setItem("theme", theme);
-        document.documentElement.setAttribute("data-theme", theme);
-      };
+  const setTheme = (theme: string) => {
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  };
 
-    const buttonLogic = () => {
-        console.log("Button pressed");
-        const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark if not set
-        if (currentTheme === "dark") {
-          // Switch to light theme
-          setTheme("light");
-          console.log("Switched to light theme");
-        } else {
-          // Switch to dark theme
-          setTheme("dark");
-          console.log("Switched to dark theme");
-        }
-        updateStyles();
-      };
-      document
-        .getElementById("theme-toggle")
-        ?.addEventListener("click", buttonLogic);
-    const updateStyles = () => {
-        document
-          .getElementById("theme-styles")
-          ?.remove(); // Remove existing styles if any
-        if (localStorage.getItem("theme") === "dark") {
-          document.getElementById("theme-toggle")?.classList.remove("bi-cloud-sun");
-          document.getElementById("theme-toggle")?.classList.add("bi-cloud-moon");
-          const style = document.createElement("style");
-          style.id = "theme-styles";
-          style.textContent = `
+  const buttonLogic = () => {
+    console.log("Button pressed");
+    const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark if not set
+    if (currentTheme === "dark") {
+      // Switch to light theme
+      setTheme("light");
+      console.log("Switched to light theme");
+    } else {
+      // Switch to dark theme
+      setTheme("dark");
+      console.log("Switched to dark theme");
+    }
+    updateStyles();
+  };
+  document
+    .getElementById("theme-toggle")
+    ?.addEventListener("click", buttonLogic);
+  const updateStyles = () => {
+    document.getElementById("theme-styles")?.remove(); // Remove existing styles if any
+    if (localStorage.getItem("theme") === "dark") {
+      document.getElementById("theme-toggle")?.classList.remove("bi-cloud-sun");
+      document.getElementById("theme-toggle")?.classList.add("bi-cloud-moon");
+      const style = document.createElement("style");
+      style.id = "theme-styles";
+      style.textContent = `
           .background-color { background-color: #393E41; }
           .foreground-color { color: #F3F3F4; }
         `;
-          document.head.appendChild(style);
-        } else {
-          document.getElementById("theme-toggle")?.classList.add("bi-cloud-sun");
-          document.getElementById("theme-toggle")?.classList.remove("bi-cloud-moon");
-          const style = document.createElement("style");
-          style.id = "theme-styles";
-          style.textContent = `
+      document.head.appendChild(style);
+    } else {
+      document.getElementById("theme-toggle")?.classList.add("bi-cloud-sun");
+      document
+        .getElementById("theme-toggle")
+        ?.classList.remove("bi-cloud-moon");
+      const style = document.createElement("style");
+      style.id = "theme-styles";
+      style.textContent = `
           .background-color { background-color: #F3F3F4; }
           .foreground-color { color: #393E41; }
         `;
-          document.head.appendChild(style);
-        }
-      };
-      updateStyles();
+      document.head.appendChild(style);
+    }
+  };
+  updateStyles();
 </script>
+<style>
+  .i-button {
+    cursor: pointer;
+    font-size: 3rem;
+  }
+</style>

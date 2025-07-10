@@ -1,19 +1,20 @@
 ---
-import Navbar from '../components/navbar.astro';
-import BaseLayout from '../layouts/base.astro';
+import Navbar from "../components/navbar.astro";
+import BaseLayout from "../layouts/base.astro";
 ---
 
 <BaseLayout title="Welcome!">
   <Navbar />
   <p id="greet" class="foreground-color">Hello!</p>
 
+
+</BaseLayout>
   <style>
     #greet {
-      font-family: 'Roboto-Flex', sans-serif;
+      font-family: "Roboto-Flex", sans-serif;
       font-weight: 400;
       font-size: 2em;
       text-align: center;
       margin-top: 20vh;
     }
   </style>
-</BaseLayout>

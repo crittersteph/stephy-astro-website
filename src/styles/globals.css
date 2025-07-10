@@ -2,25 +2,26 @@
     font-family: 'Roboto-Flex';
     src: url('../assets/Roboto-Flex.ttf') format('truetype');
 }
+
 .indigo-color {
     color: #9593D9 !important;
 }
+
 .blue-color {
     color: #7C90DB !important;
 }
+
 .green-color {
     color: #A8D8B9 !important;
 }
+
 a {
     text-decoration: none;
     color: inherit;
 }
+
 body {
     margin: 0;
     width: 100%;
     height: 100%;
-}
-.i-button {
-    cursor: pointer;
-    font-size: 1.5rem;
 }

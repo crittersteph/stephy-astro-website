@@ -1,22 +1,28 @@
 ---
-import BaseLayout from '../layouts/base.astro';
+import BaseLayout from "../layouts/base.astro";
 ---
 
 <BaseLayout title="Whoops!">
-  <p id="h">Whoops!</p>
-  <p id="error-body">
-    It seems you've tried accessing a page that doesn't exist. 
-    Double check the URL, or if you clicked a link to get here, try going 
-    back to the previous page. If you cannot, click <a href="/">here</a> to return to the homepage.
+  <p id="h" class="foreground-color">Whoops!</p>
+  <p id="error-body" class="foreground-color">
+    It seems you've tried accessing a page that doesn't exist. Double check the
+    URL, or if you clicked a link to get here, try going back to the previous
+    page. If you cannot, click <a href="/">here</a> to return to the homepage.
   </p>
-
-  <style>
-    #h {
-      font-family: 'Roboto-Flex', sans-serif;
-      font-weight: 400;
-      font-size: 2em;
-      text-align: center;
-      margin-top: 20vh;
-    }
-  </style>
 </BaseLayout>
+<style>
+  #h {
+    font-family: "Roboto-Flex", sans-serif;
+    font-weight: 400;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20vh;
+  }
+  #error-body {
+    font-family: "Roboto-Flex", sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 2vh;
+  }
+</style>

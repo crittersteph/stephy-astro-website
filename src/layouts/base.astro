@@ -18,16 +18,15 @@ import ThemeSwitcher from "../components/theme_switcher.astro";
       // On page load, use stored theme
       const stored = localStorage.getItem("theme") || "dark"; // Default to dark
       document.documentElement.setAttribute("data-theme", stored);
-      
+
       const updateStyles = () => {
-        document
-          .getElementById("theme-styles")
-          ?.remove(); // Remove existing styles if any
+        document.getElementById("theme-styles")?.remove(); // Remove existing styles if any
         if (localStorage.getItem("theme") === "dark") {
           const style = document.createElement("style");
           style.id = "theme-styles";
           style.textContent = `
           .background-color { background-color: #393E41; }
+          .darker-background { background-color: #2C2F33; }
           .foreground-color { color: #F3F3F4; }
         `;
           document.head.appendChild(style);
@@ -36,6 +35,7 @@ import ThemeSwitcher from "../components/theme_switcher.astro";
           style.id = "theme-styles";
           style.textContent = `
           .background-color { background-color: #F3F3F4; }
+          .darker-background { background-color: #E0E0E0; }
           .foreground-color { color: #393E41; }
         `;
           document.head.appendChild(style);

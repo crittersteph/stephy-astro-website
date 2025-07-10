@@ -1,15 +1,37 @@
 ---
-import '../styles/globals.css';
-import ThemeSwitcher from './theme_switcher.astro';
+import "../styles/globals.css";
+import ThemeSwitcher from "./theme_switcher.astro";
 ---
+
 <body>
-    <nav class="navbar">
+    <nav class="navbar darker-background">
         <div class="navbar-brand">
             <a href="/" class="foreground-color">stephy.gay</a>
         </div>
         <div class="navbar-links">
             <a href="/" class="foreground-color">Home</a>
             <a href="/about" class="foreground-color">About</a>
-            <a href="https://github.com/crittersteph" class="foreground-color">Github</a>
+            <a href="https://github.com/crittersteph" class="foreground-color"
+                >Contact</a
+            >
+            <a><ThemeSwitcher /></a>
+        </div>
     </nav>
 </body>
+<style>
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+    .navbar-brand a {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    .navbar-links a {
+        margin: 1rem;
+        text-decoration: none;
+        font-size: 1em;
+    }
+</style>
