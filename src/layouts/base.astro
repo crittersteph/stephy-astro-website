@@ -2,6 +2,7 @@
 import "../styles/globals.css";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 const { title = "stephy.gay" } = Astro.props;
+import ThemeSwitcher from "../components/theme_switcher.astro";
 ---
 
 <html lang="en">
@@ -11,46 +12,18 @@ const { title = "stephy.gay" } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="background-color">
-    <div class="theme-toggle-bar">
-      <i id="theme-toggle" class="bi foreground-color i-button"></i>
-    </div>
-
     <slot />
 
     <script>
-      const setTheme = (theme: string) => {
-        localStorage.setItem("theme", theme);
-        document.documentElement.setAttribute("data-theme", theme);
-      };
-
       // On page load, use stored theme
       const stored = localStorage.getItem("theme") || "dark"; // Default to dark
-      console.log(`Stored theme: ${stored}`);
       document.documentElement.setAttribute("data-theme", stored);
-      const buttonLogic = () => {
-        console.log("Button pressed");
-        const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark if not set
-        if (currentTheme === "dark") {
-          // Switch to light theme
-          setTheme("light");
-          console.log("Switched to light theme");
-        } else {
-          // Switch to dark theme
-          setTheme("dark");
-          console.log("Switched to dark theme");
-        }
-        updateStyles();
-      };
-      document
-        .getElementById("theme-toggle")
-        ?.addEventListener("click", buttonLogic);
+      
       const updateStyles = () => {
         document
           .getElementById("theme-styles")
           ?.remove(); // Remove existing styles if any
         if (localStorage.getItem("theme") === "dark") {
-          document.getElementById("theme-toggle")?.classList.remove("bi-cloud-sun");
-          document.getElementById("theme-toggle")?.classList.add("bi-cloud-moon");
           const style = document.createElement("style");
           style.id = "theme-styles";
           style.textContent = `
@@ -59,8 +32,6 @@ const { title = "stephy.gay" } = Astro.props;
         `;
           document.head.appendChild(style);
         } else {
-          document.getElementById("theme-toggle")?.classList.add("bi-cloud-sun");
-          document.getElementById("theme-toggle")?.classList.remove("bi-cloud-moon");
           const style = document.createElement("style");
           style.id = "theme-styles";
           style.textContent = `
