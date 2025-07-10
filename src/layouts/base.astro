@@ -1,5 +1,6 @@
 ---
 import "../styles/globals.css";
+import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 const { title = "stephy.gay" } = Astro.props;
 ---
 
@@ -11,7 +12,7 @@ const { title = "stephy.gay" } = Astro.props;
   </head>
   <body class="background-color">
     <div class="theme-toggle-bar">
-      <button id="theme-toggle">Toggle Theme</button>
+      <i id="theme-toggle" class="bi foreground-color i-button"></i>
     </div>
 
     <slot />
@@ -48,6 +49,8 @@ const { title = "stephy.gay" } = Astro.props;
           .getElementById("theme-styles")
           ?.remove(); // Remove existing styles if any
         if (localStorage.getItem("theme") === "dark") {
+          document.getElementById("theme-toggle")?.classList.remove("bi-cloud-sun");
+          document.getElementById("theme-toggle")?.classList.add("bi-cloud-moon");
           const style = document.createElement("style");
           style.id = "theme-styles";
           style.textContent = `
@@ -56,6 +59,8 @@ const { title = "stephy.gay" } = Astro.props;
         `;
           document.head.appendChild(style);
         } else {
+          document.getElementById("theme-toggle")?.classList.add("bi-cloud-sun");
+          document.getElementById("theme-toggle")?.classList.remove("bi-cloud-moon");
           const style = document.createElement("style");
           style.id = "theme-styles";
           style.textContent = `
