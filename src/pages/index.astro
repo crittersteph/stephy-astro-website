@@ -1,8 +1,10 @@
 ---
+import ThemeSwitcher from '../components/theme_switcher.astro';
 import BaseLayout from '../layouts/base.astro';
 ---
 
 <BaseLayout title="Welcome!">
+  <ThemeSwitcher />
   <p id="greet" class="foreground-color">Hello!</p>
 
   <style>
