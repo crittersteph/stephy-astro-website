@@ -1,6 +1,6 @@
 ---
-import '../styles/globals.css';
-const { title = 'stephy.gay' } = Astro.props;
+import "../styles/globals.css";
+const { title = "stephy.gay" } = Astro.props;
 ---
 
 <html lang="en">
@@ -9,7 +9,7 @@ const { title = 'stephy.gay' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
-  <body class="light-theme">
+  <body class="background-color">
     <div class="theme-toggle-bar">
       <button id="theme-toggle">Toggle Theme</button>
     </div>
@@ -17,23 +17,55 @@ const { title = 'stephy.gay' } = Astro.props;
     <slot />
 
     <script>
-      const toggleBtn = document.getElementById('theme-toggle');
-      const body = document.body;
       const setTheme = (theme: string) => {
-        localStorage.setItem('theme', theme);
+        localStorage.setItem("theme", theme);
+        document.documentElement.setAttribute("data-theme", theme);
       };
+
       // On page load, use stored theme
-      const stored = localStorage.getItem('theme');
-      if (stored) {
-        import(`../styles/${stored}.css`)
-          .catch((err) => console.error(`Failed to load theme: ${err}`));
-          
-      } else {
-        // Default to dark theme
-        import('../styles/dark.css')
-          .catch((err) => console.error(`Failed to load default theme: ${err}`));
-        setTheme('dark');
-      }
+      const stored = localStorage.getItem("theme") || "dark"; // Default to dark
+      console.log(`Stored theme: ${stored}`);
+      document.documentElement.setAttribute("data-theme", stored);
+      const buttonLogic = () => {
+        console.log("Button pressed");
+        const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark if not set
+        if (currentTheme === "dark") {
+          // Switch to light theme
+          setTheme("light");
+          console.log("Switched to light theme");
+        } else {
+          // Switch to dark theme
+          setTheme("dark");
+          console.log("Switched to dark theme");
+        }
+        updateStyles();
+      };
+      document
+        .getElementById("theme-toggle")
+        ?.addEventListener("click", buttonLogic);
+      const updateStyles = () => {
+        document
+          .getElementById("theme-styles")
+          ?.remove(); // Remove existing styles if any
+        if (localStorage.getItem("theme") === "dark") {
+          const style = document.createElement("style");
+          style.id = "theme-styles";
+          style.textContent = `
+          .background-color { background-color: #393E41; }
+          .foreground-color { color: #F3F3F4; }
+        `;
+          document.head.appendChild(style);
+        } else {
+          const style = document.createElement("style");
+          style.id = "theme-styles";
+          style.textContent = `
+          .background-color { background-color: #F3F3F4; }
+          .foreground-color { color: #393E41; }
+        `;
+          document.head.appendChild(style);
+        }
+      };
+      updateStyles();
     </script>
   </body>
 </html>

@@ -11,3 +11,12 @@
 .green-color {
     color: #A8D8B9 !important;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
