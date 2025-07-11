@@ -9,11 +9,10 @@ const { size = "1.5em" } = Astro.props;
   </span>
 </body>
 <script>
-
-  let root = document.documentElement
+  let root = document.documentElement;
   let button = document.getElementById("theme-toggle");
-    const loadedTheme = document.documentElement.getAttribute("data-theme");
-  if (loadedTheme === "dark" ||  loadedTheme === null) {
+  const loadedTheme = document.documentElement.getAttribute("data-theme");
+  if (loadedTheme === "dark" || loadedTheme === null) {
     button?.classList.add("bi-cloud-moon");
   } else {
     button?.classList.add("bi-cloud-sun");
@@ -34,9 +33,9 @@ const { size = "1.5em" } = Astro.props;
     .getElementById("theme-toggle")
     ?.addEventListener("click", buttonLogic);
 </script>
-<style define:vars={{size}}>
+<style define:vars={{ size }}>
   .i-button {
     cursor: pointer;
-    font-size: var(--size)
+    font-size: var(--size);
   }
 </style>
