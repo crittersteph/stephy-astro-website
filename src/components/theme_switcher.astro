@@ -15,16 +15,13 @@ const { size = "1.5em" } = Astro.props;
   };
 
   const buttonLogic = () => {
-    console.log("Button pressed");
     const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark if not set
     if (currentTheme === "dark") {
       // Switch to light theme
       setTheme("light");
-      console.log("Switched to light theme");
     } else {
       // Switch to dark theme
       setTheme("dark");
-      console.log("Switched to dark theme");
     }
     updateStyles();
   };
@@ -40,6 +37,7 @@ const { size = "1.5em" } = Astro.props;
       style.id = "theme-styles";
       style.textContent = `
           .background-color { background-color: #393E41; }
+          .darker-background { background-color: #2C2F33; }
           .foreground-color { color: #F3F3F4; }
         `;
       document.head.appendChild(style);
@@ -52,6 +50,7 @@ const { size = "1.5em" } = Astro.props;
       style.id = "theme-styles";
       style.textContent = `
           .background-color { background-color: #F3F3F4; }
+          .darker-background { background-color: #E0E0E0; }
           .foreground-color { color: #393E41; }
         `;
       document.head.appendChild(style);
@@ -59,9 +58,9 @@ const { size = "1.5em" } = Astro.props;
   };
   updateStyles();
 </script>
-<style>
+<style define:vars={{size}}>
   .i-button {
     cursor: pointer;
-    font-size: 3rem;
+    font-size: var(--size)
   }
 </style>

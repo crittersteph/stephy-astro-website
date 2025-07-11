@@ -3,26 +3,33 @@ import BaseLayout from "../layouts/base.astro";
 ---
 
 <BaseLayout title="Whoops!">
-  <p id="h" class="foreground-color">Whoops!</p>
-  <p id="error-body" class="foreground-color">
-    It seems you've tried accessing a page that doesn't exist. Double check the
-    URL, or if you clicked a link to get here, try going back to the previous
-    page. If you cannot, click <a href="/">here</a> to return to the homepage.
-  </p>
+  <span id="error-text">
+    <p id="h" class="foreground-color">Whoops!</p>
+    <p id="error-body" class="foreground-color">
+      It seems you've tried to access a page that doesn't exist. Double check
+      the URL, or if you clicked a link to get here, try going back to the
+      previous page. If you cannot, click <a href="/">here</a> to return to the homepage.
+    </p>
+  </span>
 </BaseLayout>
 <style>
   #h {
     font-family: "Roboto-Flex", sans-serif;
     font-weight: 400;
-    font-size: 2em;
+    font-size: 2rem;
     text-align: center;
     margin-top: 20vh;
   }
   #error-body {
     font-family: "Roboto-Flex", sans-serif;
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     text-align: center;
     margin-top: 2vh;
+  }
+  body {
+    margin: 0 auto;
+    max-width: 80vw; /* Constrain the width of the content */
+    overflow-wrap: break-word; /* Ensure long text wraps */
   }
 </style>
