@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/base.astro";
+import MailIcon from "../assets/mail.svg";
+import OctocatIcon from "../assets/octocat.svg";
+import MastodonIcon from "../assets/mastodon.svg";
+---
+
+<BaseLayout title="Contact me!">
+  <div class="body">
+    <p id="contact-text" class="foreground-color">
+      If you would like to contact me, here are some places you can do so!
+    </p>
+    <ul id="contact-list">
+      <li>
+        <a
+          class="contact-link"
+          href="mailto:contact@stephy.gay"
+          target="_blank"
+        >
+          <div class="icon-wrapper">
+            <MailIcon />
+          </div>
+        </a>
+        <p class="foreground-color">Email</p>
+      </li>
+      <li>
+        <a class="contact-link" href="https://tech.lgbt/@girov" target="_blank">
+          <div class="icon-wrapper">
+            <MastodonIcon />
+          </div>
+        </a>
+        <p class="foreground-color">Mastodon</p>
+      </li>
+      <li>
+        <a
+          class="contact-link"
+          href="https://github.com/crittersteph"
+          target="_blank"
+        >
+          <div class="icon-wrapper">
+            <OctocatIcon />
+          </div>
+        </a>
+        <p class="foreground-color">GitHub</p>
+      </li>
+    </ul>
+  </div>
+</BaseLayout>
+<style>
+  .body {
+    max-width: 75vw;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+  }
+  #contact-text {
+    font-family: "Roboto-Flex", sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem; /* Space between items */
+  }
+  li {
+    list-style: none;
+  }
+  .contact-link {
+    display: inline-block;
+    background-color: #7c90db;
+    border-radius: 10%;
+  }
+
+  .icon-wrapper {
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7c90db;
+    border-radius: 10%;
+  }
+
+  .icon-wrapper svg {
+    width: 80%;
+    height: 80%;
+    fill: #f3f3f4;
+  }
+  li p {
+    text-align: center;
+    font-family: "Roboto-Flex", sans-serif;
+    font-weight: 400;
+    font-size: 1.5vw;
+    margin-top: 0.5rem; /* Space between icon and text */
+  }
+</style>
