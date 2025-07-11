@@ -3,6 +3,12 @@ import BaseLayout from "../layouts/base.astro";
 import MailIcon from "../assets/mail.svg";
 import OctocatIcon from "../assets/octocat.svg";
 import MastodonIcon from "../assets/mastodon.svg";
+const links = {
+  email: "mailto:contact@stephy.gay",
+  mastodon: "https://tech.lgbt/@girov",
+  github: "https://github.com/crittersteph",
+};
+
 ---
 
 <BaseLayout title="Contact me!">
@@ -14,7 +20,7 @@ import MastodonIcon from "../assets/mastodon.svg";
       <li>
         <a
           class="contact-link"
-          href="mailto:contact@stephy.gay"
+          href={links.email}
           target="_blank"
         >
           <div class="icon-wrapper">
@@ -24,7 +30,7 @@ import MastodonIcon from "../assets/mastodon.svg";
         <p class="foreground-color">Email</p>
       </li>
       <li>
-        <a class="contact-link" href="https://tech.lgbt/@girov" target="_blank">
+        <a class="contact-link" href={links.mastodon} target="_blank">
           <div class="icon-wrapper">
             <MastodonIcon />
           </div>
@@ -34,7 +40,7 @@ import MastodonIcon from "../assets/mastodon.svg";
       <li>
         <a
           class="contact-link"
-          href="https://github.com/crittersteph"
+          href={links.github}
           target="_blank"
         >
           <div class="icon-wrapper">
