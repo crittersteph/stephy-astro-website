@@ -2,7 +2,7 @@
 import "../styles/globals.css";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 const { title = "stephy.gay" } = Astro.props;
-import ThemeSwitcher from "../components/theme_switcher.astro";
+import Navbar from "../components/navbar.astro";
 ---
 
 <html lang="en">
@@ -12,6 +12,8 @@ import ThemeSwitcher from "../components/theme_switcher.astro";
     <title>{title}</title>
   </head>
   <body class="background-color">
+    <Navbar />
+
     <slot />
 
   </body>
