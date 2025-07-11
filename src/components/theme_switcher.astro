@@ -9,54 +9,30 @@ const { size = "1.5em" } = Astro.props;
   </span>
 </body>
 <script>
-  const setTheme = (theme: string) => {
-    localStorage.setItem("theme", theme);
-    document.documentElement.setAttribute("data-theme", theme);
-  };
 
+  let root = document.documentElement
+  let button = document.getElementById("theme-toggle");
+    const loadedTheme = document.documentElement.getAttribute("data-theme");
+  if (loadedTheme === "dark" ||  loadedTheme === null) {
+    button?.classList.add("bi-cloud-moon");
+  } else {
+    button?.classList.add("bi-cloud-sun");
+  }
   const buttonLogic = () => {
-    const currentTheme = localStorage.getItem("theme") || "dark"; // Default to dark if not set
-    if (currentTheme === "dark") {
-      // Switch to light theme
-      setTheme("light");
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if (currentTheme === "dark" || currentTheme === null) {
+      root.setAttribute("data-theme", "light");
+      button?.classList.remove("bi-cloud-moon");
+      button?.classList.add("bi-cloud-sun");
     } else {
-      // Switch to dark theme
-      setTheme("dark");
+      root.setAttribute("data-theme", "dark");
+      button?.classList.remove("bi-cloud-sun");
+      button?.classList.add("bi-cloud-moon");
     }
-    updateStyles();
   };
   document
     .getElementById("theme-toggle")
     ?.addEventListener("click", buttonLogic);
-  const updateStyles = () => {
-    document.getElementById("theme-styles")?.remove(); // Remove existing styles if any
-    if (localStorage.getItem("theme") === "dark") {
-      document.getElementById("theme-toggle")?.classList.remove("bi-cloud-sun");
-      document.getElementById("theme-toggle")?.classList.add("bi-cloud-moon");
-      const style = document.createElement("style");
-      style.id = "theme-styles";
-      style.textContent = `
-          .background-color { background-color: #393E41; }
-          .darker-background { background-color: #2C2F33; }
-          .foreground-color { color: #F3F3F4; }
-        `;
-      document.head.appendChild(style);
-    } else {
-      document.getElementById("theme-toggle")?.classList.add("bi-cloud-sun");
-      document
-        .getElementById("theme-toggle")
-        ?.classList.remove("bi-cloud-moon");
-      const style = document.createElement("style");
-      style.id = "theme-styles";
-      style.textContent = `
-          .background-color { background-color: #F3F3F4; }
-          .darker-background { background-color: #E0E0E0; }
-          .foreground-color { color: #393E41; }
-        `;
-      document.head.appendChild(style);
-    }
-  };
-  updateStyles();
 </script>
 <style define:vars={{size}}>
   .i-button {

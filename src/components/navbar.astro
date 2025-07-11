@@ -14,7 +14,7 @@ import ThemeSwitcher from "./theme_switcher.astro";
             <a href="https://github.com/crittersteph" class="foreground-color"
                 >Contact</a
             >
-            <a><ThemeSwitcher size="1.5em"></ThemeSwitcher></a>
+            <ThemeSwitcher size="1.5em"></ThemeSwitcher>
         </div>
     </nav>
 </body>
@@ -29,7 +29,7 @@ import ThemeSwitcher from "./theme_switcher.astro";
         font-size: 1.5em;
         font-weight: bold;
     }
-    .navbar-links a {
+    .navbar-links * {
         margin: 1rem;
         text-decoration: none;
         font-size: 1em;
