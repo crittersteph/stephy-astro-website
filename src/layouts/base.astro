@@ -3,12 +3,20 @@ import "../styles/globals.css";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 const { title = "stephy.gay" } = Astro.props;
 import Navbar from "../components/navbar.astro";
+import CatPng from "../assets/car_square_comp.png";
+import { getImage } from "astro:assets";
+const favicon = await getImage({
+  src: CatPng,
+  width: 32,
+  height: 32,
+});
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href={favicon.src} />
     <title>{title}</title>
   </head>
   <body class="background-color">
