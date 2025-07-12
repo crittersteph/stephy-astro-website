@@ -36,4 +36,10 @@ const favicon = await getImage({
       overflow-wrap: break-word;
     }
   </style>
+  <script>
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.getItem("theme") || "dark"
+    );
+  </script>
 </html>

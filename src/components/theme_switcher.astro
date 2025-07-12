@@ -21,9 +21,11 @@ const { size = "1.5em" } = Astro.props;
     const currentTheme = document.documentElement.getAttribute("data-theme");
     if (currentTheme === "dark" || currentTheme === null) {
       root.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
       button?.classList.remove("bi-cloud-moon");
       button?.classList.add("bi-cloud-sun");
     } else {
+      localStorage.setItem("theme", "dark");
       root.setAttribute("data-theme", "dark");
       button?.classList.remove("bi-cloud-sun");
       button?.classList.add("bi-cloud-moon");
