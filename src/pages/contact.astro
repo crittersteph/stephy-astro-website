@@ -8,7 +8,6 @@ const links = {
   mastodon: "https://tech.lgbt/@girov",
   github: "https://github.com/crittersteph",
 };
-
 ---
 
 <BaseLayout title="Contact me!">
@@ -22,6 +21,7 @@ const links = {
           class="contact-link"
           href={links.email}
           target="_blank"
+          aria-label="Email link"
         >
           <div class="icon-wrapper">
             <MailIcon />
@@ -30,7 +30,13 @@ const links = {
         <p class="foreground-color">Email</p>
       </li>
       <li>
-        <a class="contact-link" href={links.mastodon} target="_blank" rel="noopener">
+        <a
+          class="contact-link"
+          href={links.mastodon}
+          target="_blank"
+          rel="noopener"
+          aria-label="Mastodon profile link"
+        >
           <div class="icon-wrapper">
             <MastodonIcon />
           </div>
@@ -43,6 +49,7 @@ const links = {
           href={links.github}
           target="_blank"
           rel="noopener"
+          aria-label="GitHub profile link"
         >
           <div class="icon-wrapper">
             <OctocatIcon />
