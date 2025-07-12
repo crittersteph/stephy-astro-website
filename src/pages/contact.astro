@@ -11,54 +11,52 @@ const links = {
 ---
 
 <BaseLayout title="Contact me!">
-  <div class="body">
-    <p id="contact-text" class="foreground-color">
-      If you would like to contact me, here are some places you can do so!
-    </p>
-    <ul id="contact-list">
-      <li>
-        <a
-          class="contact-link"
-          href={links.email}
-          target="_blank"
-          aria-label="Email link"
-        >
-          <div class="icon-wrapper">
-            <MailIcon />
-          </div>
-        </a>
-        <p class="foreground-color">Email</p>
-      </li>
-      <li>
-        <a
-          class="contact-link"
-          href={links.mastodon}
-          target="_blank"
-          rel="noopener"
-          aria-label="Mastodon profile link"
-        >
-          <div class="icon-wrapper">
-            <MastodonIcon />
-          </div>
-        </a>
-        <p class="foreground-color">Mastodon</p>
-      </li>
-      <li>
-        <a
-          class="contact-link"
-          href={links.github}
-          target="_blank"
-          rel="noopener"
-          aria-label="GitHub profile link"
-        >
-          <div class="icon-wrapper">
-            <OctocatIcon />
-          </div>
-        </a>
-        <p class="foreground-color">GitHub</p>
-      </li>
-    </ul>
-  </div>
+  <p id="contact-text" class="foreground-color">
+    If you would like to contact me, here are some places you can do so!
+  </p>
+  <ul id="contact-list">
+    <li>
+      <a
+        class="contact-link"
+        href={links.email}
+        target="_blank"
+        aria-label="Email link"
+      >
+        <div class="icon-wrapper">
+          <MailIcon />
+        </div>
+      </a>
+      <p class="foreground-color">Email</p>
+    </li>
+    <li>
+      <a
+        class="contact-link"
+        href={links.mastodon}
+        target="_blank"
+        rel="noopener"
+        aria-label="Mastodon profile link"
+      >
+        <div class="icon-wrapper">
+          <MastodonIcon />
+        </div>
+      </a>
+      <p class="foreground-color">Mastodon</p>
+    </li>
+    <li>
+      <a
+        class="contact-link"
+        href={links.github}
+        target="_blank"
+        rel="noopener"
+        aria-label="GitHub profile link"
+      >
+        <div class="icon-wrapper">
+          <OctocatIcon />
+        </div>
+      </a>
+      <p class="foreground-color">GitHub</p>
+    </li>
+  </ul>
 </BaseLayout>
 <style>
   .body {

@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/base.astro";
+const links = {
+  github: "https://github.com/crittersteph",
+  pronouns: "https://pronouns.cc/@girov",
+};
+---
+
+<BaseLayout title="About Me!">
+  <p class="foreground-color">Hello!</p>
+  <p class="foreground-color">
+    I am Steph, a <a href={links.pronouns}>curious critter.</a> I make fun stuff
+    sometimes, including this website! In fact, for those curious enough, the entire
+    source code is available <a
+      href={links.github}
+      target="_blank"
+      rel="noopener">on my GitHub</a
+    > under "stephy-astro-website".
+  </p>
+</BaseLayout>
+<style>
+  a {
+    color: #9593d9;
+  }
+  a:hover {
+    color: #b8b5f0;
+    text-decoration: wavy underline !important;
+    text-decoration-skip: none;
+  }
+</style>

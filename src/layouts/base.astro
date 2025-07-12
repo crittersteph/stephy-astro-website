@@ -21,13 +21,19 @@ const favicon = await getImage({
   </head>
   <body class="background-color">
     <Navbar />
-
-    <slot />
+    <div class="body">
+      <slot />
+    </div>
   </body>
   <style>
     body {
       max-width: 100%;
       overflow: hidden;
+    }
+    .body {
+      max-width: 75vw;
+      margin: 0 auto;
+      overflow-wrap: break-word;
     }
   </style>
 </html>
