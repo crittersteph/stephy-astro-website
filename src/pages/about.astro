@@ -7,18 +7,46 @@ const links = {
 ---
 
 <BaseLayout title="About Me!">
-  <p class="foreground-color">Hello!</p>
-  <p class="foreground-color">
-    I am Steph, a <a href={links.pronouns}>curious critter.</a> I make fun stuff
-    sometimes, including this website! In fact, for those curious enough, the entire
-    source code is available <a
+  <p id="h" class="foreground-color">Hello!</p>
+  <p class="foreground-color text">
+    I am Steph, a <a href={links.pronouns} target="_blank">curious critter.</a> I
+    make fun stuff sometimes, including this website! In fact, for those curious
+    enough, the entire source code is available <a
       href={links.github}
       target="_blank"
       rel="noopener">on my GitHub</a
     > under "stephy-astro-website".
   </p>
+  <p class="foreground-color text">
+    In terms of programming I don't really have a preferred language, but I tend
+    to gravitate towards strictly typed compiled languages, like Rust, C++ and
+    Go. I generally just make stuff when I get an inspiration, so my commit
+    history is very spotty &#128557
+  </p>
+  <p class="foreground-color text">
+    I am generally a very friendly person, so as long as you respect my pronouns
+    and name you're free to send me a mail or contact me anywhere else to chat
+    :) If you can't use any of the provided links on the <a href="/contact"
+      >contact</a
+    > page, you can try looking for "girov"/"girof" or "crittersteph" on most social
+    platforms (If I don't respond you might have found one of the few elusive accounts
+    that I forgot about, so try somewhere else).
+  </p>
 </BaseLayout>
 <style>
+  #h {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  .text {
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1em;
+  }
   a {
     color: #9593d9;
   }
